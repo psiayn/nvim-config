@@ -16,6 +16,7 @@ return require('packer').startup(function()
   use 'kyazdani42/nvim-tree.lua'
 
   use 'nvim-treesitter/nvim-treesitter'
+  use 'nvim-treesitter/completion-treesitter'
   -- airline 
   use 'vim-airline/vim-airline'
   use 'vim-airline/vim-airline-themes'
@@ -27,4 +28,11 @@ return require('packer').startup(function()
   use 'kien/ctrlp.vim'
   use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+  }
+  use 'tpope/vim-fugitive'
+  -- themes
+  use 'danilo-augusto/vim-afterglow'
 end)

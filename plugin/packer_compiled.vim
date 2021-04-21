@@ -36,29 +36,45 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/psiayn/.local/share/nvim/site/pack/packer/start/completion-nvim"
   },
+  ["completion-treesitter"] = {
+    loaded = true,
+    path = "/home/psiayn/.local/share/nvim/site/pack/packer/start/completion-treesitter"
+  },
   ["ctrlp.vim"] = {
     loaded = true,
     path = "/home/psiayn/.local/share/nvim/site/pack/packer/start/ctrlp.vim"
+  },
+  ["defx.nvim"] = {
+    loaded = true,
+    path = "/home/psiayn/.local/share/nvim/site/pack/packer/start/defx.nvim"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/psiayn/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
   },
-  ["nvim-tree.lua"] = {
-    loaded = true,
-    path = "/home/psiayn/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
-  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/psiayn/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
   },
-  ["nvim-web-devicons"] = {
-    loaded = true,
-    path = "/home/psiayn/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/psiayn/.local/share/nvim/site/pack/packer/start/packer.nvim"
+  },
+  ["plenary.nvim"] = {
+    loaded = true,
+    path = "/home/psiayn/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+  },
+  ["popup.nvim"] = {
+    loaded = true,
+    path = "/home/psiayn/.local/share/nvim/site/pack/packer/start/popup.nvim"
+  },
+  ["telescope.nvim"] = {
+    loaded = true,
+    path = "/home/psiayn/.local/share/nvim/site/pack/packer/start/telescope.nvim"
+  },
+  ["vim-afterglow"] = {
+    loaded = true,
+    path = "/home/psiayn/.local/share/nvim/site/pack/packer/start/vim-afterglow"
   },
   ["vim-airline"] = {
     loaded = true,
@@ -75,6 +91,10 @@ _G.packer_plugins = {
   ["vim-commentary"] = {
     loaded = true,
     path = "/home/psiayn/.local/share/nvim/site/pack/packer/start/vim-commentary"
+  },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/home/psiayn/.local/share/nvim/site/pack/packer/start/vim-fugitive"
   },
   ["vim-surround"] = {
     loaded = true,

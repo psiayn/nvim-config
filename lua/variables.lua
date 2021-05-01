@@ -2,14 +2,12 @@
 vim.wo.number = true
 vim.cmd('colorscheme afterglow')
 vim.cmd('set mouse=a')
-
+vim.api.nvim_set_option('tabstop', 4)
+vim.api.nvim_set_option('shiftwidth', 4)
 -- treesitter config
 require'nvim-treesitter.configs'.setup {
 ensure_installed = "maintained",
   highlight = {
-    enable = true
-  },
-  indent = {
     enable = true
   }
 }
@@ -19,6 +17,7 @@ vim.o.foldmethod = 'indent'
 -- vim.o.foldmethod = 'expr'
 vim.cmd('filetype plugin indent on')
 vim.o.foldexpr = 'nvim_tresitter#foldexpr()'
+vim.api.nvim_set_option('fdm', 'indent')
 vim.cmd([[
 autocmd FileType nroff setlocal fdm=marker
 autocmd FileType vim setlocal fdm=marker
@@ -44,61 +43,9 @@ vim.g.completion_chain_complete_list = {
   },
 }
 
--- pyright config
-require'lspconfig'.pyright.setup{}
+require'lspinstall'.setup() -- important
 
--- typescript / javascript
-require'lspconfig'.tsserver.setup{}
-
--- c++/c
-require'lspconfig'.clangd.setup{}
-
--- java
-require'lspconfig'.jdtls.setup{
-	on_attach = require'completion'.on_attach
-}
-
-require'lspconfig'.gopls.setup{}
-
--- lua config
-local system_name
-if vim.fn.has("mac") == 1 then
-  system_name = "macOS"
-elseif vim.fn.has("unix") == 1 then
-  system_name = "Linux"
-elseif vim.fn.has('win32') == 1 then
-  system_name = "Windows"
-else
-  print("Unsupported system for sumneko")
+local servers = require'lspinstall'.installed_servers()
+for _, server in pairs(servers) do
+  require'lspconfig'[server].setup{}
 end
-local sumneko_root_path = '/home/psiayn/.config/nvim/ls/lua-language-server'
-local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
-require'lspconfig'.sumneko_lua.setup {
-  cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = 'LuaJIT',
-        -- Setup your lua path
-        path = vim.split(package.path, ';'),
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = {
-          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-        },
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
-    },
-  },
-  on_attach=require'completion'.on_attach
-}

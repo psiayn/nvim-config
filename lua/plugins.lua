@@ -23,6 +23,7 @@ return require('packer').startup(function()
   use 'bling/vim-bufferline'
   -- lsp go brr
   use 'neovim/nvim-lspconfig'
+  use 'kabouzeid/nvim-lspinstall'
   use 'nvim-lua/completion-nvim'
   -- easy of lifes
   use 'kien/ctrlp.vim'

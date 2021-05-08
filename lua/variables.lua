@@ -1,6 +1,18 @@
 -- custom configs
 vim.wo.number = true
-vim.cmd('colorscheme afterglow')
+require('zephyr')
+vim.cmd([[
+set splitbelow
+set splitright
+]])
+vim.cmd([[
+if has("gui_vimr")
+	colorscheme two-firewatch
+	set bg=dark
+	let g:two_firewatch_italics=1
+	colo two-firewatch
+endif
+]])
 vim.cmd('set mouse=a')
 vim.api.nvim_set_option('tabstop', 4)
 vim.api.nvim_set_option('shiftwidth', 4)
@@ -11,6 +23,9 @@ ensure_installed = "maintained",
     enable = true
   }
 }
+
+-- indent guides
+require('indent_guides').setup({})
 
 -- haha filetype go brr
 vim.o.foldmethod = 'indent'
@@ -26,8 +41,8 @@ autocmd FileType zsh setlocal fdm=marker
 --afterglow themes
 vim.g.afterglow_inherit_background = 1
 -- airline configuration
-vim.g.airline_powerline_fonts = 1
--- vim.g.airline_theme = 'badwolf'
+-- vim.g.airline_powerline_fonts = 1
+-- -- vim.g.airline_theme = 'twofirewatch'
 
 -- lsp config
 vim.cmd('set completeopt=menuone,noinsert,noselect')
@@ -44,6 +59,10 @@ vim.g.completion_chain_complete_list = {
 }
 
 require'lspinstall'.setup() -- important
+
+require'lspconfig'.clangd.setup{}
+
+require'lspconfig'.dartls.setup{}
 
 local servers = require'lspinstall'.installed_servers()
 for _, server in pairs(servers) do

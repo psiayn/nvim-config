@@ -18,9 +18,9 @@ return require('packer').startup(function()
   use 'nvim-treesitter/nvim-treesitter'
   use 'nvim-treesitter/completion-treesitter'
   -- airline 
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
-  use 'bling/vim-bufferline'
+  -- use 'vim-airline/vim-airline'
+  -- use 'vim-airline/vim-airline-themes'
+  -- use 'bling/vim-bufferline'
   -- lsp go brr
   use 'neovim/nvim-lspconfig'
   use 'kabouzeid/nvim-lspinstall'
@@ -36,4 +36,17 @@ return require('packer').startup(function()
   use 'tpope/vim-fugitive'
   -- themes
   use 'danilo-augusto/vim-afterglow'
+  use 'rakr/vim-two-firewatch'
+  use 'glepnir/zephyr-nvim'
+  -- indent guides
+  use 'glepnir/indent-guides.nvim'
+  -- galaxyline
+  use {
+    'glepnir/galaxyline.nvim',
+    branch = 'main',
+    -- your statusline
+    config = function() require'eviline' end,
+    -- some optional icons
+    requires = {'kyazdani42/nvim-web-devicons', opt = true}
+  }
 end)

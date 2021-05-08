@@ -47,8 +47,8 @@ local function save_profiles(threshold)
 end
 
 time("Luarocks path setup", true)
-local package_path_str = "/var/home/psiayn/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/var/home/psiayn/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/var/home/psiayn/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/var/home/psiayn/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/var/home/psiayn/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/Users/psiayn/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/psiayn/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/psiayn/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/psiayn/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/psiayn/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -73,83 +73,92 @@ time("Defining packer_plugins", true)
 _G.packer_plugins = {
   ["completion-nvim"] = {
     loaded = true,
-    path = "/var/home/psiayn/.local/share/nvim/site/pack/packer/start/completion-nvim"
+    path = "/Users/psiayn/.local/share/nvim/site/pack/packer/start/completion-nvim"
   },
   ["completion-treesitter"] = {
     loaded = true,
-    path = "/var/home/psiayn/.local/share/nvim/site/pack/packer/start/completion-treesitter"
+    path = "/Users/psiayn/.local/share/nvim/site/pack/packer/start/completion-treesitter"
   },
   ["ctrlp.vim"] = {
     loaded = true,
-    path = "/var/home/psiayn/.local/share/nvim/site/pack/packer/start/ctrlp.vim"
+    path = "/Users/psiayn/.local/share/nvim/site/pack/packer/start/ctrlp.vim"
+  },
+  ["galaxyline.nvim"] = {
+    config = { "\27LJ\2\n'\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\feviline\frequire\0" },
+    loaded = true,
+    path = "/Users/psiayn/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
+  },
+  ["indent-guides.nvim"] = {
+    loaded = true,
+    path = "/Users/psiayn/.local/share/nvim/site/pack/packer/start/indent-guides.nvim"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "/var/home/psiayn/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+    path = "/Users/psiayn/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
   },
   ["nvim-lspinstall"] = {
     loaded = true,
-    path = "/var/home/psiayn/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
+    path = "/Users/psiayn/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
-    path = "/var/home/psiayn/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
+    path = "/Users/psiayn/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
-    path = "/var/home/psiayn/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
+    path = "/Users/psiayn/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "/var/home/psiayn/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
+    path = "/Users/psiayn/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/var/home/psiayn/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    path = "/Users/psiayn/.local/share/nvim/site/pack/packer/start/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/var/home/psiayn/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+    path = "/Users/psiayn/.local/share/nvim/site/pack/packer/start/plenary.nvim"
   },
   ["popup.nvim"] = {
     loaded = true,
-    path = "/var/home/psiayn/.local/share/nvim/site/pack/packer/start/popup.nvim"
+    path = "/Users/psiayn/.local/share/nvim/site/pack/packer/start/popup.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
-    path = "/var/home/psiayn/.local/share/nvim/site/pack/packer/start/telescope.nvim"
+    path = "/Users/psiayn/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
   ["vim-afterglow"] = {
     loaded = true,
-    path = "/var/home/psiayn/.local/share/nvim/site/pack/packer/start/vim-afterglow"
-  },
-  ["vim-airline"] = {
-    loaded = true,
-    path = "/var/home/psiayn/.local/share/nvim/site/pack/packer/start/vim-airline"
-  },
-  ["vim-airline-themes"] = {
-    loaded = true,
-    path = "/var/home/psiayn/.local/share/nvim/site/pack/packer/start/vim-airline-themes"
-  },
-  ["vim-bufferline"] = {
-    loaded = true,
-    path = "/var/home/psiayn/.local/share/nvim/site/pack/packer/start/vim-bufferline"
+    path = "/Users/psiayn/.local/share/nvim/site/pack/packer/start/vim-afterglow"
   },
   ["vim-commentary"] = {
     loaded = true,
-    path = "/var/home/psiayn/.local/share/nvim/site/pack/packer/start/vim-commentary"
+    path = "/Users/psiayn/.local/share/nvim/site/pack/packer/start/vim-commentary"
   },
   ["vim-fugitive"] = {
     loaded = true,
-    path = "/var/home/psiayn/.local/share/nvim/site/pack/packer/start/vim-fugitive"
+    path = "/Users/psiayn/.local/share/nvim/site/pack/packer/start/vim-fugitive"
   },
   ["vim-surround"] = {
     loaded = true,
-    path = "/var/home/psiayn/.local/share/nvim/site/pack/packer/start/vim-surround"
+    path = "/Users/psiayn/.local/share/nvim/site/pack/packer/start/vim-surround"
+  },
+  ["vim-two-firewatch"] = {
+    loaded = true,
+    path = "/Users/psiayn/.local/share/nvim/site/pack/packer/start/vim-two-firewatch"
+  },
+  ["zephyr-nvim"] = {
+    loaded = true,
+    path = "/Users/psiayn/.local/share/nvim/site/pack/packer/start/zephyr-nvim"
   }
 }
 
 time("Defining packer_plugins", false)
+-- Config for: galaxyline.nvim
+time("Config for galaxyline.nvim", true)
+try_loadstring("\27LJ\2\n'\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\feviline\frequire\0", "config", "galaxyline.nvim")
+time("Config for galaxyline.nvim", false)
 if should_profile then save_profiles() end
 
 END

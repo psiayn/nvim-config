@@ -1,31 +1,17 @@
 -- custom configs
 vim.wo.number = true
-require('zephyr')
+-- require('zephyr')
 vim.cmd([[
 set splitbelow
 set splitright
-]])
-vim.cmd([[
+]]) vim.cmd([[
 if has("gui_vimr")
 	colorscheme two-firewatch
 	set bg=dark
 	let g:two_firewatch_italics=1
 	colo two-firewatch
 endif
-]])
-vim.cmd('set mouse=a')
-vim.api.nvim_set_option('tabstop', 4)
-vim.api.nvim_set_option('shiftwidth', 4)
--- treesitter config
-require'nvim-treesitter.configs'.setup {
-ensure_installed = "maintained",
-  highlight = {
-    enable = true
-  }
-}
-
--- indent guides
-require('indent_guides').setup({})
+]]) vim.cmd('set mouse=a') vim.api.nvim_set_option('tabstop', 4) vim.api.nvim_set_option('shiftwidth', 4)
 
 -- haha filetype go brr
 vim.o.foldmethod = 'indent'
@@ -58,13 +44,26 @@ vim.g.completion_chain_complete_list = {
   },
 }
 
-require'lspinstall'.setup() -- important
+-- expressline go brrrrrr
+require('el').setup{}
+
+require'lspconfig'.rnix.setup{}
 
 require'lspconfig'.clangd.setup{}
 
 require'lspconfig'.dartls.setup{}
 
-local servers = require'lspinstall'.installed_servers()
-for _, server in pairs(servers) do
-  require'lspconfig'[server].setup{}
-end
+require'lspconfig'.gopls.setup{}
+
+require'lspconfig'.tsserver.setup{}
+
+require'lspconfig'.tailwindcss.setup{}
+
+-- nvim-metals
+
+vim.cmd [[augroup lsp]]
+vim.cmd [[au!]]
+vim.cmd [[au FileType scala,sbt lua require("metals").initialize_or_attach(metals_config)]]
+vim.cmd [[augroup end]]
+metals_config = require'metals'.bare_config
+metals_config.init_options.statusBarProvider = 'on'

@@ -40,9 +40,6 @@ vim.g.completion_chain_complete_list = {
   },
 }
 
--- expressline go brrrrrr
-require('el').setup{}
-
 require'lspconfig'.rnix.setup{}
 
 require'lspconfig'.clangd.setup{}

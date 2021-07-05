@@ -12,6 +12,7 @@ return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
   -- nvim-tree
+  use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
 
   use 'nvim-treesitter/nvim-treesitter'
@@ -38,6 +39,13 @@ return require('packer').startup(function()
   use 'danilo-augusto/vim-afterglow'
   use 'rakr/vim-two-firewatch'
   use 'glepnir/zephyr-nvim'
-  -- expressline gotta go fast
-  use 'tjdevries/express_line.nvim'
+  -- galaxyline
+  use {
+    'glepnir/galaxyline.nvim',
+    branch = 'main',
+    -- your statusline
+    config = function() require'eviline' end,
+    -- some optional icons
+    requires = {'kyazdani42/nvim-web-devicons', opt = true}
+  }
 end)

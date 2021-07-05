@@ -1,17 +1,13 @@
 -- custom configs
 vim.wo.number = true
--- require('zephyr')
+require('zephyr')
 vim.cmd([[
 set splitbelow
 set splitright
-]]) vim.cmd([[
-if has("gui_vimr")
-	colorscheme two-firewatch
-	set bg=dark
-	let g:two_firewatch_italics=1
-	colo two-firewatch
-endif
-]]) vim.cmd('set mouse=a') vim.api.nvim_set_option('tabstop', 4) vim.api.nvim_set_option('shiftwidth', 4)
+]]) 
+vim.cmd('set mouse=a') vim.api.nvim_set_option('tabstop', 4) vim.api.nvim_set_option('shiftwidth', 4)
+
+require'nvim-web-devicons'.get_icons()
 
 -- haha filetype go brr
 vim.o.foldmethod = 'indent'
@@ -56,8 +52,6 @@ require'lspconfig'.dartls.setup{}
 require'lspconfig'.gopls.setup{}
 
 require'lspconfig'.tsserver.setup{}
-
-require'lspconfig'.tailwindcss.setup{}
 
 -- nvim-metals
 

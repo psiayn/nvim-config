@@ -20,11 +20,6 @@ autocmd FileType nroff setlocal fdm=marker
 autocmd FileType vim setlocal fdm=marker
 autocmd FileType zsh setlocal fdm=marker
 ]])
---afterglow themes
-vim.g.afterglow_inherit_background = 1
--- airline configuration
--- vim.g.airline_powerline_fonts = 1
--- -- vim.g.airline_theme = 'twofirewatch'
 
 -- lsp config
 vim.cmd('set completeopt=menuone,noinsert,noselect')
@@ -44,11 +39,11 @@ require'lspconfig'.rnix.setup{}
 
 require'lspconfig'.clangd.setup{}
 
-require'lspconfig'.dartls.setup{}
-
 require'lspconfig'.gopls.setup{}
 
 require'lspconfig'.tsserver.setup{}
+
+require'lspconfig'.pyright.setup{}
 
 -- nvim-metals
 

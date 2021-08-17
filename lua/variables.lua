@@ -35,15 +35,23 @@ vim.g.completion_chain_complete_list = {
   },
 }
 
-require'lspconfig'.rnix.setup{}
 
-require'lspconfig'.clangd.setup{}
+-- require'lspconfig'.clangd.setup{}
 
-require'lspconfig'.gopls.setup{}
+-- require'lspconfig'.gopls.setup{}
 
-require'lspconfig'.tsserver.setup{}
+-- require'lspconfig'.tsserver.setup{}
 
-require'lspconfig'.pyright.setup{}
+-- require'lspconfig'.pyright.setup{}
+
+require'lspinstall'.setup() -- important
+
+local servers = require'lspinstall'.installed_servers()
+for _, server in pairs(servers) do
+  require'lspconfig'[server].setup{}
+end
+
+
 
 -- nvim-metals
 

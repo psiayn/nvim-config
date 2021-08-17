@@ -16,13 +16,14 @@ return require('packer').startup(function()
   use 'kyazdani42/nvim-tree.lua'
 
   use 'nvim-treesitter/nvim-treesitter'
-  -- use 'nvim-treesitter/completion-treesitter'
+  use 'nvim-treesitter/completion-treesitter'
   -- airline 
   -- use 'vim-airline/vim-airline'
   -- use 'vim-airline/vim-airline-themes'
   -- use 'bling/vim-bufferline'
   -- lsp go brr
   use 'neovim/nvim-lspconfig'
+  use 'kabouzeid/nvim-lspinstall'
   use 'nvim-lua/completion-nvim'
   use 'LnL7/vim-nix'
   use 'scalameta/nvim-metals'

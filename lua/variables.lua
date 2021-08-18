@@ -1,7 +1,7 @@
 -- require('zephyr')
 vim.opt.termguicolors = true
 vim.cmd([[
-colorscheme highlite
+colorscheme xshado
 set splitbelow
 set splitright
 set nu rnu
@@ -9,6 +9,30 @@ set nu rnu
 vim.cmd('set mouse=a') vim.api.nvim_set_option('tabstop', 4) vim.api.nvim_set_option('shiftwidth', 4)
 
 require'nvim-web-devicons'.get_icons()
+
+-- staline
+
+require'staline'.setup{
+	sections = {
+		left = {'- ', '-mode', 'left_sep_double', 'file_name', '  ', 'branch'},
+		mid  = {'lsp'},
+		right= { 'cool_symbol', '  ', vim.bo.fileencoding, 'right_sep_double', '-line_column'}
+	},
+	defaults = {
+		cool_symbol = "  ",
+		left_separator = "",
+		right_separator = "",
+		bg = "#303030",
+		full_path = false,
+		branch_symbol = " "
+	},
+	mode_colors = {
+		n = "#986fec",
+		i = "#e86671",
+		ic= "#e86671",
+		c = "#e27d60"
+	}
+}
 
 -- haha filetype go brr
 vim.o.foldmethod = 'indent'

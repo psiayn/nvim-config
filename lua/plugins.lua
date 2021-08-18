@@ -23,6 +23,8 @@ return require('packer').startup(function()
   -- use 'bling/vim-bufferline'
   -- lsp go brr
   use 'neovim/nvim-lspconfig'
+  use { 'ms-jpq/coq_nvim', branch = 'coq'} -- main one
+  use { 'ms-jpq/coq.artifacts', branch= 'artifacts'} -- 9000+ Snippets
   use 'kabouzeid/nvim-lspinstall'
   use 'nvim-lua/completion-nvim'
   use 'LnL7/vim-nix'
@@ -37,9 +39,8 @@ return require('packer').startup(function()
   }
   use 'tpope/vim-fugitive'
   -- themes
-  use 'danilo-augusto/vim-afterglow'
-  use 'rakr/vim-two-firewatch'
   use 'glepnir/zephyr-nvim'
+  use 'Iron-E/nvim-highlite'
   -- galaxyline
   use {
     'glepnir/galaxyline.nvim',

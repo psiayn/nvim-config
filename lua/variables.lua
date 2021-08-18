@@ -1,9 +1,10 @@
--- custom configs
-vim.wo.number = true
-require('zephyr')
+-- require('zephyr')
+vim.opt.termguicolors = true
 vim.cmd([[
+colorscheme highlite
 set splitbelow
 set splitright
+set nu rnu
 ]]) 
 vim.cmd('set mouse=a') vim.api.nvim_set_option('tabstop', 4) vim.api.nvim_set_option('shiftwidth', 4)
 
@@ -34,6 +35,22 @@ vim.g.completion_chain_complete_list = {
    },
   },
 }
+
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    custom_captures = {
+      -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
+      -- ["foo.bar"] = "Identifier",
+    },
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+
 
 
 -- require'lspconfig'.clangd.setup{}

@@ -17,18 +17,14 @@ return require('packer').startup(function()
 
   use 'nvim-treesitter/nvim-treesitter'
   use 'nvim-treesitter/completion-treesitter'
-  -- airline 
-  -- use 'vim-airline/vim-airline'
-  -- use 'vim-airline/vim-airline-themes'
-  -- use 'bling/vim-bufferline'
   -- lsp go brr
   use 'neovim/nvim-lspconfig'
   use { 'ms-jpq/coq_nvim', branch = 'coq'} -- main one
   use { 'ms-jpq/coq.artifacts', branch= 'artifacts'} -- 9000+ Snippets
   use 'kabouzeid/nvim-lspinstall'
   use 'nvim-lua/completion-nvim'
-  use 'LnL7/vim-nix'
   use 'scalameta/nvim-metals'
+  use 'lark-parser/vim-lark-syntax'
   -- easy of lifes
   use 'kien/ctrlp.vim'
   use 'tpope/vim-commentary'
@@ -38,8 +34,12 @@ return require('packer').startup(function()
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
   }
   use 'tpope/vim-fugitive'
+  use 'lewis6991/gitsigns.nvim'
+  use 'norcalli/nvim-colorizer.lua'
   -- themes
-  use 'Shadorain/shadotheme'
+  use 'danilo-augusto/vim-afterglow'
+  use 'dualspc/spaceodyssey.nvim'
+  use 'andreasvc/vim-256noir'
   -- staline
   use 'tamton-aquib/staline.nvim'
 end)

@@ -1,8 +1,6 @@
--- require('zephyr')
 vim.opt.termguicolors = true
--- require('spaceodyssey')
 vim.cmd([[
-colorscheme 256_noir
+colorscheme photon
 set splitbelow
 set splitright
 set nu rnu
@@ -11,30 +9,6 @@ vim.cmd('set mouse=a') vim.api.nvim_set_option('tabstop', 4) vim.api.nvim_set_op
 
 require'nvim-web-devicons'.get_icons()
 require'colorizer'.setup()
--- staline
-
--- require'staline'.setup{
--- 	sections = {
--- 		left = {'- ', '-mode', 'left_sep_double', 'file_name', '  ', 'branch'},
--- 		mid  = {'lsp'},
--- 		right= { 'cool_symbol', '  ', vim.bo.fileencoding, 'right_sep_double', '-line_column'}
--- 	},
--- 	-- defaults = {
--- 	-- 	cool_symbol = "  ",
--- 	-- 	left_separator = "",
--- 	-- 	right_separator = "",
--- 	-- 	bg = "#303030",
--- 	-- 	full_path = false,
-	-- 	branch_symbol = " "
--- 	-- },
--- 	-- mode_colors = {
--- 	-- 	n = "#986fec",
--- 	-- 	i = "#e86671",
--- 	-- 	ic= "#e86671",
--- 	-- 	c = "#e27d60"
--- 	-- }
--- }
-
 
 require "staline".setup {
 	sections = {
@@ -70,6 +44,17 @@ autocmd FileType vim setlocal fdm=marker
 autocmd FileType zsh setlocal fdm=marker
 ]])
 
+vim.o.shiftwidth = 2
+vim.bo.shiftwidth = 2
+
+vim.o.softtabstop = 2
+vim.bo.softtabstop = 2
+
+vim.o.expandtab = true
+vim.bo.expandtab = true
+vim.o.shiftround = false
+
+ 
 require('gitsigns').setup()
 -- lsp config
 vim.cmd('set completeopt=menuone,noinsert,noselect')

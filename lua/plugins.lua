@@ -37,9 +37,7 @@ return require('packer').startup(function()
   use 'lewis6991/gitsigns.nvim'
   use 'norcalli/nvim-colorizer.lua'
   -- themes
-  use 'danilo-augusto/vim-afterglow'
-  use 'dualspc/spaceodyssey.nvim'
-  use 'andreasvc/vim-256noir'
+  use 'axvr/photon.vim'
   -- staline
   use 'tamton-aquib/staline.nvim'
 end)

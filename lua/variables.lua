@@ -1,6 +1,6 @@
 vim.opt.termguicolors = true
 vim.cmd([[
-colorscheme photon
+colorscheme bruin
 set splitbelow
 set splitright
 set nu rnu
@@ -44,11 +44,11 @@ autocmd FileType vim setlocal fdm=marker
 autocmd FileType zsh setlocal fdm=marker
 ]])
 
-vim.o.shiftwidth = 2
-vim.bo.shiftwidth = 2
+-- vim.o.shiftwidth = 2
+-- vim.bo.shiftwidth = 2
 
-vim.o.softtabstop = 2
-vim.bo.softtabstop = 2
+-- vim.o.softtabstop = 2
+-- vim.bo.softtabstop = 2
 
 vim.o.expandtab = true
 vim.bo.expandtab = true
@@ -70,6 +70,11 @@ vim.g.completion_chain_complete_list = {
   },
 }
 
+vim.cmd([[
+set fdm=expr
+set foldexpr=nvim_treesitter#foldexpr)
+]])
+
 require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
@@ -82,6 +87,9 @@ require'nvim-treesitter.configs'.setup {
     -- Using this option may slow down your editor, and you may see some duplicate highlights.
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
+  },
+  indent = {
+    enable = true
   },
 }
 
@@ -98,19 +106,22 @@ vim.g.coq_settings = {auto_start = true}
 
 require'lspinstall'.setup() -- important
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
+require('keymaps')
+
+
+local nvim_lsp = require("lspconfig")
+
+local on_attach = function (client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-  -- Enable completion triggered by <c-x><c-o>
+  -- enable completion triggered by <C-x><C-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  -- Mappings.
-  local opts = { noremap=true, silent=true }
+  -- Mappings
+  local opts = { noremap = true, silent = true }
 
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  -- keybindings go brrr
   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
@@ -128,9 +139,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-
 end
-
 
 local servers = require'lspinstall'.installed_servers()
 for _, server in pairs(servers) do

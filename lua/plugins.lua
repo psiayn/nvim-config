@@ -1,6 +1,5 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
-
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -34,7 +33,18 @@ return require('packer').startup(function()
   use 'lewis6991/gitsigns.nvim'
   use 'norcalli/nvim-colorizer.lua'
   -- themes
-  use 'https://git.sr.ht/~romainl/vim-bruin'
+use({
+    'rose-pine/neovim',
+    as = 'rose-pine',
+    config = function()
+        -- Options (see available options below)
+        vim.g.rose_pine_variant = 'base'
+
+        -- Load colorscheme after options
+        vim.cmd('colorscheme rose-pine')
+        vim.g.rose_pine_disable_background = true
+    end
+})
   -- chadtree
   use {'ms-jpq/chadtree', branch = 'chad'}
   -- staline

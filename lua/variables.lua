@@ -1,6 +1,5 @@
-vim.opt.termguicolors = true
 vim.cmd([[
-colorscheme bruin
+set termguicolors
 set splitbelow
 set splitright
 set nu rnu
@@ -150,11 +149,3 @@ end
 
 
 
--- nvim-metals
-
-vim.cmd [[augroup lsp]]
-vim.cmd [[au!]]
-vim.cmd [[au FileType scala,sbt lua require("metals").initialize_or_attach(metals_config)]]
-vim.cmd [[augroup end]]
-metals_config = require'metals'.bare_config
-metals_config.init_options.statusBarProvider = 'on'

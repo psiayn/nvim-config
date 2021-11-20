@@ -14,17 +14,20 @@ return require('packer').startup(function()
   use 'kyazdani42/nvim-web-devicons'
   use 'nvim-treesitter/nvim-treesitter'
   use 'nvim-treesitter/completion-treesitter'
+  use 'editorconfig/editorconfig-vim'
   -- lsp go brr
   use 'neovim/nvim-lspconfig'
   use { 'ms-jpq/coq_nvim', branch = 'coq'} -- main one
   use { 'ms-jpq/coq.artifacts', branch= 'artifacts'} -- 9000+ Snippets
   use {'ms-jpq/coq.thirdparty', branch= '3p'}
-  use 'kabouzeid/nvim-lspinstall'
   use 'nvim-lua/completion-nvim'
+  use 'williamboman/nvim-lsp-installer'
+  use 'pantharshit00/vim-prisma'
   -- easy of lifes
   use 'kien/ctrlp.vim'
   use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
+  use 'akinsho/bufferline.nvim'
   use {
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
@@ -32,19 +35,10 @@ return require('packer').startup(function()
   use 'tpope/vim-fugitive'
   use 'lewis6991/gitsigns.nvim'
   use 'norcalli/nvim-colorizer.lua'
+  use 'ThePrimeagen/harpoon'
   -- themes
-use({
-    'rose-pine/neovim',
-    as = 'rose-pine',
-    config = function()
-        -- Options (see available options below)
-        vim.g.rose_pine_variant = 'base'
-
-        -- Load colorscheme after options
-        vim.cmd('colorscheme rose-pine')
-        vim.g.rose_pine_disable_background = true
-    end
-})
+  use 'whatyouhide/vim-gotham'
+  use 'danilo-augusto/vim-afterglow'
   -- chadtree
   use {'ms-jpq/chadtree', branch = 'chad'}
   -- staline

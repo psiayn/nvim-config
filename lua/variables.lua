@@ -1,4 +1,5 @@
 vim.cmd([[
+colorscheme afterglow
 set termguicolors
 set splitbelow
 set splitright
@@ -6,9 +7,13 @@ set nu rnu
 ]]) 
 vim.cmd('set mouse=a') vim.api.nvim_set_option('tabstop', 4) vim.api.nvim_set_option('shiftwidth', 4)
 
+vim.g.afterglow_inherit_background = true
+
 require'nvim-web-devicons'.get_icons()
 require'colorizer'.setup()
-
+require("bufferline").setup{
+        diagnostic = "nvim_lsp"
+}
 require "staline".setup {
 	sections = {
 		left = { 'cool_symbol', 'mode', ' ', 'branch', ' '},
@@ -18,9 +23,7 @@ require "staline".setup {
 	mode_colors = {
 		i = "#d4be98",
 		n = "#84a598",
-		c = "#8fbf7f",
-		v = "#fc802d",
-	},
+		c = "#8fbf7f", v = "#fc802d", },
 	defaults = {
 		branch_symbol = " ",
 		cool_symbol = "  ",
@@ -93,7 +96,7 @@ require'nvim-treesitter.configs'.setup {
 }
 
 -- nice COQ bro
-vim.g.coq_settings = {auto_start = true}
+vim.g.coq_settings = {auto_start = 'shut-up'}
 
 -- require'lspconfig'.clangd.setup{}
 
@@ -101,9 +104,24 @@ vim.g.coq_settings = {auto_start = true}
 
 -- require'lspconfig'.tsserver.setup{}
 
--- require'lspconfig'.dartls.setup{}
+require'lspconfig'.dartls.setup{}
 
-require'lspinstall'.setup() -- important
+local lsp_installer = require('nvim-lsp-installer')
+
+lsp_installer.settings({
+    ui = {
+        icons = {
+            server_installed = "✓",
+            server_pending = "➜",
+            server_uninstalled = "✗"
+        }
+    }
+})
+
+lsp_installer.on_server_ready(function(server)
+    local opts = {}
+    server:setup(opts)
+end) -- important
 
 require('keymaps')
 
@@ -118,9 +136,10 @@ local on_attach = function (client, bufnr)
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings
-  local opts = { noremap = true, silent = true }
+  local opts = { noremap = true }
 
   -- keybindings go brrr
+  buf_set_keymap('n', '<space>rf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
@@ -137,15 +156,4 @@ local on_attach = function (client, bufnr)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-  buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
-
-local servers = require'lspinstall'.installed_servers()
-for _, server in pairs(servers) do
-  require'lspconfig'[server].setup{
-	  on_attach = on_attach,
-  }
-end
-
-
-

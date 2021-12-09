@@ -1,5 +1,6 @@
 vim.cmd([[
-colorscheme afterglow
+set background=light
+colorscheme solarized8_high
 set termguicolors
 set splitbelow
 set splitright
@@ -57,7 +58,6 @@ vim.bo.expandtab = true
 vim.o.shiftround = false
 
  
-require('gitsigns').setup()
 -- lsp config
 vim.cmd('set completeopt=menuone,noinsert,noselect')
 vim.g.completion_auto_change_source = true

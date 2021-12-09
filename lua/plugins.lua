@@ -34,11 +34,12 @@ return require('packer').startup(function()
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
   }
   use 'tpope/vim-fugitive'
-  use 'lewis6991/gitsigns.nvim'
+  use 'airblade/vim-gitgutter'
   use 'norcalli/nvim-colorizer.lua'
   use 'ThePrimeagen/harpoon'
   -- themes
   use 'danilo-augusto/vim-afterglow'
+  use 'lifepillar/vim-solarized8'
   -- chadtree
   use {'ms-jpq/chadtree', branch = 'chad'}
   -- staline

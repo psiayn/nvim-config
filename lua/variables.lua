@@ -26,7 +26,7 @@ require "staline".setup {
 		c = "#8fbf7f", v = "#fc802d", },
 	defaults = {
 		branch_symbol = " ",
-		cool_symbol = "  ",
+		cool_symbol = "  ",
 		true_colors = true,
 		line_column = " [%l/%L] :%c  ",
 		branch_symbol = " "
@@ -35,10 +35,10 @@ require "staline".setup {
 
 
 -- haha filetype go brr
-vim.o.foldmethod = 'indent'
--- vim.o.foldmethod = 'expr'
+-- vim.o.foldmethod = 'indent'
+vim.o.foldmethod = 'expr'
 vim.cmd('filetype plugin indent on')
-vim.o.foldexpr = 'nvim_tresitter#foldexpr()'
+vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.api.nvim_set_option('fdm', 'indent')
 vim.cmd([[
 autocmd FileType nroff setlocal fdm=marker
@@ -71,11 +71,6 @@ vim.g.completion_chain_complete_list = {
    },
   },
 }
-
-vim.cmd([[
-set fdm=expr
-set foldexpr=nvim_treesitter#foldexpr)
-]])
 
 require'nvim-treesitter.configs'.setup {
   highlight = {

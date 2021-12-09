@@ -22,7 +22,8 @@ return require('packer').startup(function()
   use {'ms-jpq/coq.thirdparty', branch= '3p'}
   use 'nvim-lua/completion-nvim'
   use 'williamboman/nvim-lsp-installer'
-  use 'pantharshit00/vim-prisma'
+  use 'LnL7/vim-nix'
+  use 'lark-parser/vim-lark-syntax'
   -- easy of lifes
   use 'kien/ctrlp.vim'
   use 'tpope/vim-commentary'
@@ -37,7 +38,6 @@ return require('packer').startup(function()
   use 'norcalli/nvim-colorizer.lua'
   use 'ThePrimeagen/harpoon'
   -- themes
-  use 'whatyouhide/vim-gotham'
   use 'danilo-augusto/vim-afterglow'
   -- chadtree
   use {'ms-jpq/chadtree', branch = 'chad'}

@@ -3,21 +3,6 @@
 vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', { noremap = true, silent = true })
 vim.g.mapleader = ' '
 
--- -- auto matching braces and quotes
--- vim.api.nvim_set_keymap('i', '\'', '\'\'<left>', { noremap = true })
--- vim.api.nvim_set_keymap('i', '\"', '\"\"<left>', { noremap = true })
--- vim.api.nvim_set_keymap('i', '(', '()<left>', { noremap = true })
--- vim.api.nvim_set_keymap('i', '`', '``<left>', { noremap = true })
--- vim.api.nvim_set_keymap('i', '[', '[]<left>', { noremap = true })
--- vim.api.nvim_set_keymap('i', '{', '{}<left>', { noremap = true })
--- vim.api.nvim_set_keymap('i', '(<CR>', '(<CR>)<ESC>O', { noremap = true })
--- vim.api.nvim_set_keymap('i', '`<CR>', '`<CR>`<ESC>O', { noremap = true })
--- vim.api.nvim_set_keymap('i', '[<CR>', '[<CR>]<ESC>O', { noremap = true })
--- vim.api.nvim_set_keymap('i', '{<CR>', '{<CR>}<ESC>O', { noremap = true })
--- vim.api.nvim_set_keymap('i', '(;<CR>', '(<CR>);<ESC>O', { noremap = true })
--- vim.api.nvim_set_keymap('i', '[;<CR>', '[<CR>];<ESC>O', { noremap = true })
--- vim.api.nvim_set_keymap('i', '{;<CR>', '{<CR>};<ESC>O', { noremap = true })
--- no highlight
 vim.api.nvim_set_keymap('n', '<Leader>h', ':set hlsearch!<CR>', { noremap = true, silent = true })
 
 -- nvim tree toggle

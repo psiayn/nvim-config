@@ -28,7 +28,6 @@ return require('packer').startup(function()
   use 'kien/ctrlp.vim'
   use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
-  use 'akinsho/bufferline.nvim'
   use {
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
@@ -38,10 +37,11 @@ return require('packer').startup(function()
   use 'norcalli/nvim-colorizer.lua'
   use 'ThePrimeagen/harpoon'
   -- themes
-  use 'danilo-augusto/vim-afterglow'
-  use 'lifepillar/vim-solarized8'
+  use 'morhetz/gruvbox'
   -- chadtree
   use {'ms-jpq/chadtree', branch = 'chad'}
-  -- staline
-  use 'tamton-aquib/staline.nvim'
+  -- airline
+  use 'vim-airline/vim-airline'
+  -- vim be good
+  use 'ThePrimeagen/vim-be-good'
 end)

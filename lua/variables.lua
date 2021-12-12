@@ -1,39 +1,8 @@
-vim.cmd([[
-set background=light
-colorscheme solarized8_high
-set termguicolors
-set splitbelow
-set splitright
-set nu rnu
-]]) 
 vim.cmd('set mouse=a') vim.api.nvim_set_option('tabstop', 4) vim.api.nvim_set_option('shiftwidth', 4)
-
-vim.g.afterglow_inherit_background = true
+vim.cmd('set termguicolors')
 
 require'nvim-web-devicons'.get_icons()
 require'colorizer'.setup()
-require("bufferline").setup{
-        diagnostic = "nvim_lsp"
-}
-require "staline".setup {
-	sections = {
-		left = { 'cool_symbol', 'mode', ' ', 'branch', ' '},
-		mid = { 'lsp' },
-		right = {'file_name', 'line_column' }
-	},
-	mode_colors = {
-		i = "#d4be98",
-		n = "#84a598",
-		c = "#8fbf7f", v = "#fc802d", },
-	defaults = {
-		branch_symbol = " ",
-		cool_symbol = "  ",
-		true_colors = true,
-		line_column = " [%l/%L] :%c  ",
-		branch_symbol = " "
-	}
-}
-
 
 -- haha filetype go brr
 -- vim.o.foldmethod = 'indent'
@@ -95,11 +64,12 @@ vim.g.coq_settings = {auto_start = 'shut-up'}
 
 -- require'lspconfig'.clangd.setup{}
 
--- require'lspconfig'.gopls.setup{}
+require'lspconfig'.gopls.setup{}
 
 -- require'lspconfig'.tsserver.setup{}
 
 require'lspconfig'.dartls.setup{}
+require'lspconfig'.rust_analyzer.setup{}
 
 local lsp_installer = require('nvim-lsp-installer')
 
@@ -152,3 +122,17 @@ local on_attach = function (client, bufnr)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 end
+
+vim.cmd([[
+set background=dark
+colorscheme gruvbox
+set splitbelow
+set splitright
+set nu rnu
+]]) 
+
+-- airline
+vim.g.airline_powerline_fonts = true
+vim.cmd([[
+let g:airline#extensions#tabline#enabled = 1
+]])

@@ -44,4 +44,6 @@ return require('packer').startup(function()
   use 'vim-airline/vim-airline'
   -- vim be good
   use 'ThePrimeagen/vim-be-good'
+  -- custom
+  use '/home/psiayn/dev/oss/compile.nvim/'
 end)

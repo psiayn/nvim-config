@@ -136,3 +136,8 @@ vim.g.airline_powerline_fonts = true
 vim.cmd([[
 let g:airline#extensions#tabline#enabled = 1
 ]])
+
+-- 80 character limit
+vim.cmd([[
+set colorcolumn=80
+]])

@@ -45,5 +45,5 @@ return require('packer').startup(function()
   -- vim be good
   use 'ThePrimeagen/vim-be-good'
   -- custom
-  use '/home/psiayn/dev/oss/compile.nvim/'
+  use 'psiayn/compile.nvim'
 end)

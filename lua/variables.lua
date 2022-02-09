@@ -126,6 +126,9 @@ end
 vim.cmd([[
 set background=dark
 colorscheme gruvbox
+let g:gruvbox_transparent_bg = 1
+autocmd VimEnter * hi Normal ctermbg=none
+hi Normal guibg=NONE ctermbg=NONE
 set splitbelow
 set splitright
 set nu rnu

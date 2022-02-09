@@ -26,9 +26,9 @@ set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
 set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 
 -- better window movement
@@ -57,3 +57,7 @@ vim.g.completeopt = 'menuone,noinsert,noselect'
 vim.cmd('set shortmess+=c')
 vim.api.nvim_set_keymap('i', '<tab>', '<Plug>(completion_smart_tab)', {})
 vim.api.nvim_set_keymap('i', '<s-tab>', '<Plug>(completion_smart_s_tab)', {})
+
+-- harpoon time
+vim.api.nvim_set_keymap('n', '<leader>hm', '<cmd>lua require("harpoon.mark").add_file()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>hu', '<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>', { noremap = true })

@@ -46,4 +46,7 @@ return require('packer').startup(function()
   use 'ThePrimeagen/vim-be-good'
   -- custom
   use 'psiayn/compile.nvim'
+
+  -- vimwiki
+  use 'vimwiki/vimwiki'
 end)

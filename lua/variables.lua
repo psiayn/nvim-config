@@ -1,4 +1,6 @@
-vim.cmd('set mouse=a') vim.api.nvim_set_option('tabstop', 4) vim.api.nvim_set_option('shiftwidth', 4)
+vim.cmd('set mouse=a')
+vim.api.nvim_set_option('tabstop', 4)
+vim.api.nvim_set_option('shiftwidth', 4)
 vim.cmd('set termguicolors')
 
 require'nvim-web-devicons'.get_icons()
@@ -143,4 +145,9 @@ let g:airline#extensions#tabline#enabled = 1
 -- 80 character limit
 vim.cmd([[
 set colorcolumn=80
+]])
+
+-- vimwiki
+vim.cmd([[
+let g:vimwiki_list = [{'path': '~/Sync/vimwiki/wiki', 'path_html': '~/Sync/vimwiki/html', 'syntax': 'markdown', 'ext': 'md'}]
 ]])

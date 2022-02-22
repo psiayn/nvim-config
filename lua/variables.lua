@@ -2,6 +2,7 @@ vim.cmd('set mouse=a')
 vim.api.nvim_set_option('tabstop', 4)
 vim.api.nvim_set_option('shiftwidth', 4)
 vim.cmd('set termguicolors')
+vim.cmd('set t_Co=256')
 
 require'nvim-web-devicons'.get_icons()
 require'colorizer'.setup()
@@ -126,21 +127,16 @@ local on_attach = function (client, bufnr)
 end
 
 vim.cmd([[
-set background=dark
-colorscheme gruvbox
-let g:gruvbox_transparent_bg = 1
-autocmd VimEnter * hi Normal ctermbg=none
-hi Normal guibg=NONE ctermbg=NONE
+colorscheme catppuccin
 set splitbelow
 set splitright
 set nu rnu
 ]]) 
 
--- airline
-vim.g.airline_powerline_fonts = true
-vim.cmd([[
-let g:airline#extensions#tabline#enabled = 1
-]])
+
+require("feline").setup({
+	components = require('catppuccin.core.integrations.feline'),
+})
 
 -- 80 character limit
 vim.cmd([[

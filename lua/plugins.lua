@@ -38,10 +38,10 @@ return require('packer').startup(function()
   use 'ThePrimeagen/harpoon'
   -- themes
   use 'morhetz/gruvbox'
+  use {'catppuccin/nvim', as = "catppuccin"}
   -- chadtree
   use {'ms-jpq/chadtree', branch = 'chad'}
-  -- airline
-  use 'vim-airline/vim-airline'
+  use 'feline-nvim/feline.nvim'
   -- vim be good
   use 'ThePrimeagen/vim-be-good'
   -- custom

@@ -1,3 +1,4 @@
+require("psiayn.plugins")
 require("psiayn.bar")
 require("psiayn.tree")
 require("psiayn.treesitter")

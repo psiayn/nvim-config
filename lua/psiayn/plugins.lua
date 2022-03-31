@@ -11,7 +11,7 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  use 'dylanaraps/wal.vim'
+  use 'morhetz/gruvbox'
 
   use 'NTBBloodbath/galaxyline.nvim'
 
@@ -47,6 +47,21 @@ return require('packer').startup(function(use)
 	use 'simrat39/rust-tools.nvim'
 
   use 'norcalli/nvim-colorizer.lua'
+
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup()
+    end
+  }
+
+  use 'b3nj5m1n/kommentary'
+
+  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim',
+    config = function ()
+      require('neogit').setup()
+    end
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
